@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界杯 · 稳定入口与页面说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f2f7f9;
+            color: #1e2c34;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            padding: 1.6rem 1.2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 780px;
+            width: 100%;
+        }
+
+        /* hero 区域 —— 短句开场 */
+        .hero {
+            margin-bottom: 2.4rem;
+            padding-top: 0.8rem;
+        }
+
+        .hero .label {
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #2b7a7a;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #0f2e2e;
+        }
+
+        .hero h1 span {
+            color: #1f8b8b;
+        }
+
+        /* 承接段落 */
+        .intro {
+            background: #ffffffd9;
+            backdrop-filter: blur(2px);
+            padding: 1.8rem 1.6rem;
+            border-radius: 24px;
+            box-shadow: 0 4px 12px rgba(0, 40, 40, 0.04);
+            margin-bottom: 2rem;
+            border: 1px solid #cde6e6;
+        }
+
+        .intro p {
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+        }
+
+        .intro p:last-child {
+            margin-bottom: 0;
+        }
+
+        .intro a {
+            color: #116666;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1.5px dashed #4fafaf;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .intro a:hover {
+            color: #063d3d;
+            border-bottom-color: #116666;
+        }
+
+        .intro .stat {
+            display: inline-block;
+            background: #e1f2f2;
+            padding: 0.1rem 0.8rem;
+            border-radius: 30px;
+            color: #1a5757;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+
+        /* 网格卡片 —— 特点列表 */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.2rem;
+            margin: 2.4rem 0 2.2rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.4rem 1.2rem 1.6rem;
+            box-shadow: 0 6px 14px rgba(23, 70, 70, 0.04);
+            border: 1px solid #d3e7e7;
+            transition: box-shadow 0.2s, transform 0.15s;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 22px rgba(0, 60, 60, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #134747;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .card h3 .emoji-symbol {
+            display: inline-block;
+            width: 0.9em;
+            text-align: center;
+            color: #1f8b8b;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #2a4444;
+        }
+
+        .card .meta-tag {
+            display: inline-block;
+            margin-top: 0.6rem;
+            font-size: 0.7rem;
+            background: #e3f0f0;
+            padding: 0.15rem 0.6rem;
+            border-radius: 20px;
+            color: #1c5e5e;
+            letter-spacing: 0.02em;
+        }
+
+        /* 温和结尾 */
+        .closing {
+            background: #e5f2f2;
+            border-radius: 28px;
+            padding: 1.8rem 1.6rem;
+            margin: 2.4rem 0 1.2rem;
+            border: 1px solid #bbd9d9;
+            text-align: center;
+        }
+
+        .closing p {
+            font-size: 0.95rem;
+            color: #1d4a4a;
+            max-width: 580px;
+            margin: 0 auto;
+        }
+
+        .closing .link-wrap {
+            margin-top: 1rem;
+        }
+
+        .closing a {
+            color: #0e5c5c;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid #84bebe;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .closing a:hover {
+            color: #043b3b;
+            border-bottom-color: #0e5c5c;
+        }
+
+        /* 小字 + 脚注 */
+        .footnote {
+            font-size: 0.75rem;
+            color: #628282;
+            margin-top: 2.8rem;
+            border-top: 1px solid #cde0e0;
+            padding-top: 1.2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 0.4rem;
+        }
+
+        /* 响应式微调 */
+        @media (max-width: 520px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .intro {
+                padding: 1.4rem 1.2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .card {
+                padding: 1.2rem 1rem 1.4rem;
+            }
+
+            .closing {
+                padding: 1.4rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- 开场短句 -->
+        <div class="hero">
+            <div class="label">稳定入口 · 页面说明</div>
+            <h1>赛事信息集中处<br><span>从一处开始</span></h1>
+        </div>
+
+        <!-- 承接段落：介绍 + 自然链接 -->
+        <div class="intro">
+            <p>
+                随着新一届赛事临近，信息聚合的稳定性成为很多参与者的基本需求。
+                我们希望提供一个始终清晰、可靠的内容起点，让你在需要时能快速定位到核心动态与背景资料。
+            </p>
+            <p>
+                很多人习惯在浏览器里同时打开多个标签，但真正有效的信息入口往往只需要一个。
+                我们以 <a href="https://init-cn-united2026.com">世界杯</a> 为锚点，整理出经过核验的赛事框架、赛程节点与观赛指引，
+                省去反复搜索的精力，把时间留给更重要的部分。
+            </p>
+            <p>
+                这个页面本身就是一份轻量说明——它不追求大而全，但力求稳定、可依赖。
+                当前收录的模块覆盖了主要赛区与关键时间线，后续会根据赛事进展做适度增补。
+            </p>
+        </div>
+
+        <!-- 特点网格卡片（蓝绿色点缀、信息密度） -->
+        <div class="features-grid">
+            <div class="card">
+                <h3><span class="emoji-symbol">◈</span> 结构精简</h3>
+                <p>页面按阶段与区域组织，减少无关跳转；每部分保持篇幅克制，适合移动端快速查阅。</p>
+                <span class="meta-tag">卡片式导航</span>
+            </div>
+            <div class="card">
+                <h3><span class="emoji-symbol">◈</span> 赛历对照</h3>
+                <p>收录已公布的小组赛、淘汰赛日期及场地信息，并定期对比官方公告进行修正。</p>
+                <span class="meta-tag">持续校准</span>
+            </div>
+            <div class="card">
+                <h3><span class="emoji-symbol">◈</span> 背景说明</h3>
+                <p>每项内容附带简短上下文，帮助新访客快速理解条目意义，避免信息过载。</p>
+                <span class="meta-tag">上下文优先</span>
+            </div>
+            <div class="card">
+                <h3><span class="emoji-symbol">◈</span> 低负载设计</h3>
+                <p>页面使用系统字体与轻量样式，加载迅速，在弱网环境下依然可正常浏览。</p>
+                <span class="meta-tag">可及性</span>
+            </div>
+        </div>
+
+        <!-- 温和结尾 + 自然链接再度出现（且文本严格等于“世界杯”） -->
+        <div class="closing">
+            <p>
+                如果你只用记住一个地址，那就是我们反复提到的
+                <a href="https://init-cn-united2026.com">世界杯</a>。
+                这里没有铺天盖地的推送，只有整理好的赛程框架与必要说明。
+            </p>
+            <div class="link-wrap">
+                <span style="font-size:0.85rem; color:#2e6b6b;">→ 从稳定入口开始</span>
+            </div>
+        </div>
+
+        <!-- 小字脚注，体现 FAQ 摘要感 -->
+        <div class="footnote">
+            <span>内容依据公开资料整理 · 仅供参考</span>
+            <span>页面版本 2026 · 持续更新</span>
+        </div>
+    </div>
+</body>
+</html>
